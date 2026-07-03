@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marium Jamshed — Resume</title>
+<meta name="description" content="Marium Jamshed — BS Software Engineering student at FAST-NUCES. Java, C, and a growing data analytics toolkit: NumPy, Pandas, Matplotlib, Seaborn.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#0A0E16;
+    --paper-raised:#101623;
+    --ink:#EDF1F7;
+    --ink-soft:#9FACC2;
+    --ink-faint:#5E6B82;
+    --teal:#4FC3CE;
+    --teal-deep:#5FD4DE;
+    --amber:#E8AE4D;
+    --line:#232B3D;
+    --code-bg:#050810;
+    --code-text:#CFE3E8;
+    --code-comment:#5A7086;
+    --code-string:#E8AE4D;
+    --code-key:#6FC2CB;
+    --radius:2px;
+    --maxw:920px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--amber); color:#0A0E16;}
+
+  a{color:var(--teal-deep); text-decoration-thickness: 1px; text-underline-offset: 3px;}
+  a:hover{color:var(--ink);}
+
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px;}
+
+  h1,h2,h3{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:600;
+    color:var(--ink);
+    letter-spacing:-0.01em;
+    margin:0;
+  }
+
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.75rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--teal-deep);
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:14px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:22px;
+    height:1px;
+    background:var(--teal-deep);
+    display:inline-block;
+  }
+
+  /* ===== Header / Hero ===== */
+  header.hero{
+    padding:72px 0 56px;
+    border-bottom:1px solid var(--line);
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns: 1fr auto;
+    gap:32px;
+    align-items:start;
+  }
+  .hero h1{
+    font-size:clamp(2.2rem, 5vw, 3.3rem);
+    line-height:1.05;
+  }
+  .hero .role{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:1rem;
+    color:var(--ink-soft);
+    margin-top:14px;
+  }
+  .hero .tagline{
+    margin-top:22px;
+    max-width:56ch;
+    color:var(--ink-soft);
+    font-size:1.05rem;
+  }
+  .hero-photo{
+    width: 300px;
+    height:300px;
+    border-radius:50%;
+    object-fit:cover;
+    border:2px solid var(--paper-raised);
+    box-shadow: 0 0 0 1px var(--line);
+    background:var(--paper-raised);
+  }
+  .hero-links{
+    margin-top:26px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.85rem;
+  }
+  .hero-links a{
+    border:1px solid var(--line);
+    padding:7px 13px;
+    border-radius:var(--radius);
+    color:var(--ink);
+    background:var(--paper-raised);
+    transition:border-color .15s ease, color .15s ease;
+  }
+  .hero-links a:hover{
+    border-color:var(--teal-deep);
+    color:var(--teal-deep);
+  }
+
+  /* ===== Sections ===== */
+  section{
+    padding:52px 0;
+    border-bottom:1px solid var(--line);
+  }
+  section:last-of-type{border-bottom:none;}
+  .section-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    margin-bottom:30px;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+  .section-head h2{font-size:1.5rem;}
+  .section-note{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.78rem;
+    color:var(--ink-faint);
+  }
+
+  /* ===== Skills ===== */
+  .skill-groups{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap:24px;
+  }
+  .skill-card{
+    background:var(--paper-raised);
+    border:1px solid var(--line);
+    padding:20px 20px 22px;
+    border-radius:var(--radius);
+  }
+  .skill-card h3{
+    font-size:0.95rem;
+    font-family:'IBM Plex Mono', monospace;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    color:var(--teal-deep);
+    margin-bottom:14px;
+    font-weight:600;
+  }
+  .chip-row{display:flex; flex-wrap:wrap; gap:8px;}
+  .chip{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.8rem;
+    padding:5px 10px;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    color:var(--ink-soft);
+    cursor:pointer;
+    appearance:none;
+    -webkit-appearance:none;
+    transition:background .15s ease, border-color .15s ease, color .15s ease, transform .1s ease;
+  }
+  .chip:hover{
+    border-color:var(--teal);
+    color:var(--teal-deep);
+    background:rgba(79,195,206,0.08);
+  }
+  .chip:active{transform:translateY(1px);}
+  .chip:focus-visible{
+    outline:2px solid var(--teal);
+    outline-offset:2px;
+  }
+  .chip.active{
+    border-color:var(--amber);
+    color:var(--amber);
+    background:rgba(232,174,77,0.1);
+  }
+  .chip.learning{
+    border-style:dashed;
+    color:var(--teal-deep);
+    border-color:var(--teal);
+  }
+  .chip.learning:hover{
+    border-style:solid;
+    background:rgba(79,195,206,0.12);
+  }
+  .chip.learning.active{
+    border-style:solid;
+    border-color:var(--amber);
+    color:var(--amber);
+    background:rgba(232,174,77,0.1);
+  }
+  .skill-card p.hint{
+    margin-top:12px;
+    font-size:0.8rem;
+    color:var(--ink-faint);
+  }
+
+  /* ===== Projects — notebook cell signature ===== */
+  .cell{
+    background:var(--paper-raised);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    margin-bottom:22px;
+    overflow:hidden;
+  }
+  .cell:last-child{margin-bottom:0;}
+  .cell-in{
+    display:grid;
+    grid-template-columns: 84px 1fr;
+  }
+  .cell-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    color:var(--teal-deep);
+    padding:16px 8px 16px 20px;
+    line-height:1.5;
+    white-space:nowrap;
+  }
+  .cell-code{
+    background:var(--code-bg);
+    color:var(--code-text);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.82rem;
+    padding:16px 20px 16px 8px;
+    overflow-x:auto;
+    line-height:1.65;
+  }
+  .cell-code .c{color:var(--code-comment);}
+  .cell-code .s{color:var(--code-string);}
+  .cell-code .k{color:var(--code-key);}
+  .cell-out{
+    display:grid;
+    grid-template-columns: 84px 1fr;
+    border-top:1px solid var(--line);
+  }
+  .cell-out .cell-label{color:var(--amber);}
+  .cell-out-body{
+    padding:16px 20px 20px 8px;
+  }
+  .cell-out-body h4{
+    font-family:'Space Grotesk', sans-serif;
+    font-size:1.05rem;
+    margin:0 0 6px;
+    color:var(--ink);
+  }
+  .cell-out-body p{
+    margin:0 0 10px;
+    color:var(--ink-soft);
+    font-size:0.94rem;
+  }
+  .cell-out-body .tags{
+    display:flex; flex-wrap:wrap; gap:6px;
+  }
+  .cell-out-body .tags span{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    color:var(--ink-faint);
+    background:var(--paper);
+    border:1px solid var(--line);
+    padding:3px 8px;
+    border-radius:var(--radius);
+  }
+
+  /* ===== Experience / Education timeline ===== */
+  .entry{
+    display:grid;
+    grid-template-columns: 200px 1fr;
+    gap:20px;
+    padding:20px 0;
+    border-top:1px solid var(--line);
+  }
+  .entry:first-child{border-top:none; padding-top:0;}
+  .entry-date{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.8rem;
+    color:var(--ink-faint);
+    padding-top:3px;
+  }
+  .entry-body h3{font-size:1.1rem;}
+  .entry-body .org{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.85rem;
+    color:var(--teal-deep);
+    margin-top:3px;
+  }
+  .entry-body ul{
+    margin:12px 0 0;
+    padding-left:18px;
+    color:var(--ink-soft);
+    font-size:0.94rem;
+  }
+  .entry-body li{margin-bottom:6px;}
+
+  /* ===== Extracurricular / languages ===== */
+  .two-col{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:32px;
+  }
+  .list-plain{
+    list-style:none;
+    margin:0; padding:0;
+  }
+  .list-plain li{
+    padding:9px 0;
+    border-top:1px solid var(--line);
+    font-size:0.95rem;
+    color:var(--ink-soft);
+    display:flex;
+    gap:10px;
+  }
+  .list-plain li:first-child{border-top:none;}
+  .list-plain li::before{
+    content:"›";
+    color:var(--teal);
+    font-family:'IBM Plex Mono', monospace;
+  }
+  .lang-row{
+    display:flex;
+    justify-content:space-between;
+    padding:9px 0;
+    border-top:1px solid var(--line);
+    font-size:0.95rem;
+  }
+  .lang-row:first-child{border-top:none;}
+  .lang-row span:last-child{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.8rem;
+    color:var(--ink-faint);
+  }
+
+  /* ===== Footer / contact ===== */
+  footer{
+    padding:48px 0 60px;
+  }
+  .contact-box{
+    background:var(--code-bg);
+    color:var(--code-text);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:34px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:20px;
+  }
+  .contact-box h2{
+    color:#fff;
+    font-size:1.4rem;
+  }
+  .contact-box p{
+    color:var(--code-comment);
+    margin:8px 0 0;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.85rem;
+  }
+  .contact-box a.btn{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.85rem;
+    background:var(--amber);
+    color:#0A0E16;
+    padding:12px 20px;
+    border-radius:var(--radius);
+    text-decoration:none;
+    font-weight:600;
+    white-space:nowrap;
+  }
+  .contact-box a.btn:hover{background:#fff;}
+  .fine-print{
+    text-align:center;
+    margin-top:26px;
+    color:var(--ink-faint);
+    font-size:0.78rem;
+    font-family:'IBM Plex Mono', monospace;
+  }
+
+  @media (max-width: 720px){
+    .hero-grid{grid-template-columns:1fr; }
+    .hero-photo{order:-1;}
+    .skill-groups{grid-template-columns:1fr;}
+    .cell-in, .cell-out{grid-template-columns: 1fr;}
+    .cell-label{padding:12px 20px 0;}
+    .cell-code{padding:8px 20px 16px;}
+    .cell-out-body{padding:8px 20px 18px;}
+    .entry{grid-template-columns:1fr; gap:6px;}
+    .two-col{grid-template-columns:1fr; gap:0;}
+    .contact-box{flex-direction:column; align-items:flex-start;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">Resume — BS Software Engineering</div>
+        <h1>Marium Jamshed</h1>
+        <div class="role">Java &amp; C foundations · learning the Python data stack (NumPy, Pandas, Matplotlib, Seaborn)</div>
+        <p class="tagline">Software Engineering student at FAST-NUCES, Karachi. I build with structured, object-oriented code and I'm now exploring data analytics and AI/ML — turning raw datasets into readable insight.</p>
+        <div class="hero-links">
+          <a href="mailto:mariumjam@gmail.com">mariumjam@gmail.com</a>
+          <a href="https://mariumjamhsed.github.io/My-Portfolio/" target="_blank" rel="noopener">Portfolio ↗</a>
+          <a href="#projects">Jump to projects</a>
+        </div>
+      </div>
+      <img class="hero-photo" src="meee.jpeg" alt="Marium Jamshed">
+    </div>
+  </div>
+</header>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Skills</h2>
+      <div class="section-note">// languages, tools, and what's currently loading</div>
+    </div>
+    <div class="skill-groups">
+      <div class="skill-card">
+        <h3>Core languages</h3>
+        <div class="chip-row">
+          <button type="button" class="chip">Java</button>
+          <button type="button" class="chip">C</button>
+          <button type="button" class="chip">C++</button>
+          <button type="button" class="chip">SQL</button>
+          <button type="button" class="chip">HTML</button>
+          <button type="button" class="chip">CSS</button>
+        </div>
+        <p class="hint">Object-oriented design, data structures, file handling.</p>
+      </div>
+      <div class="skill-card">
+        <h3>Data analytics</h3>
+        <div class="chip-row">
+          <button type="button" class="chip">Python</button>
+          <button type="button" class="chip">NumPy</button>
+          <button type="button" class="chip">Pandas</button>
+          <button type="button" class="chip">Matplotlib</button>
+          <button type="button" class="chip">Seaborn</button>
+        </div>
+        <p class="hint">EDA, data cleaning, visualization on real-world datasets.</p>
+      </div>
+      <div class="skill-card">
+        <h3>Currently learning</h3>
+        <div class="chip-row">
+          <button type="button" class="chip learning">AI / ML fundamentals</button>
+          <button type="button" class="chip learning">Advanced Pandas</button>
+          <button type="button" class="chip learning">Statistical visualization</button>
+        </div>
+        <p class="hint">Actively deepening the data science toolkit alongside coursework.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Projects</h2>
+      <div class="section-note">// selected work, shown as notebook cells</div>
+    </div>
+
+    <div class="cell">
+      <div class="cell-in">
+        <div class="cell-label">In [1]:</div>
+        <div class="cell-code"><span class="k">import</span> pandas <span class="k">as</span> pd, seaborn <span class="k">as</span> sns<br><span class="c"># IPL ball-by-ball &amp; match dataset</span><br>df = pd.read_csv(<span class="s">"ipl_matches.csv"</span>)<br>sns.heatmap(df.corr())</div>
+      </div>
+      <div class="cell-out">
+        <div class="cell-label">Out [1]:</div>
+        <div class="cell-out-body">
+          <h4>IPL Exploratory Data Analysis</h4>
+          <p>Explored an IPL cricket dataset end-to-end — cleaning raw match data, engineering features, and visualizing patterns in team performance, toss decisions, and player statistics using Pandas and Seaborn.</p>
+          <div class="tags"><span>Python</span><span>Pandas</span><span>Seaborn</span><span>Matplotlib</span><span>EDA</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cell">
+      <div class="cell-in">
+        <div class="cell-label">In [2]:</div>
+        <div class="cell-code"><span class="k">import</span> numpy <span class="k">as</span> np<br><span class="c"># clean, transform, visualize</span><br>data = df.dropna().reset_index()<br>data.describe()</div>
+      </div>
+      <div class="cell-out">
+        <div class="cell-label">Out [2]:</div>
+        <div class="cell-out-body">
+          <h4>Data Analytics with Pandas &amp; Seaborn</h4>
+          <p>Worked across multiple open datasets to practice the full analytics workflow: handling missing data, array-level computation with NumPy, and building clear, labeled charts that surface trends at a glance.</p>
+          <div class="tags"><span>NumPy</span><span>Pandas</span><span>Data Cleaning</span><span>Visualization</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cell">
+      <div class="cell-in">
+        <div class="cell-label">In [3]:</div>
+        <div class="cell-code"><span class="k">class</span> PlayerShip <span class="k">extends</span> JPanel {<br>&nbsp;&nbsp;<span class="c">// game loop, sprites, collisions</span><br>&nbsp;&nbsp;<span class="k">void</span> update() { ... }<br>}</div>
+      </div>
+      <div class="cell-out">
+        <div class="cell-label">Out [3]:</div>
+        <div class="cell-out-body">
+          <h4>2D Space Shooter — Java Swing</h4>
+          <p>A GUI-based 2D space shooter game built in Java using Swing, with sprite rendering, a real-time game loop, and collision detection. Built as a group project with Ilham Fatima.</p>
+          <div class="tags"><span>Java</span><span>Swing</span><span>OOP</span><span>Game Loop</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cell">
+      <div class="cell-in">
+        <div class="cell-label">In [4]:</div>
+        <div class="cell-code"><span class="k">struct</span> Book { <span class="k">char</span> title[50]; <span class="k">int</span> id; };<br><span class="c">// file-based storage, borrow/return logic</span><br><span class="k">void</span> saveToFile(Book b) { ... }</div>
+      </div>
+      <div class="cell-out">
+        <div class="cell-label">Out [4]:</div>
+        <div class="cell-out-body">
+          <h4>Library Management System — C</h4>
+          <p>A console-based library system handling book records, user information, and borrow/return processes, built with structs, file handling, and algorithmic logic for organized, reliable data storage.</p>
+          <div class="tags"><span>C</span><span>File Handling</span><span>Data Structures</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Experience</h2>
+      <div class="section-note">// professional</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">Nov 2024 – Mar 2025<br>(5 months)</div>
+      <div class="entry-body">
+        <h3>Customer Service Agent — Walmart Campaign</h3>
+        <div class="org">IBEX Global</div>
+        <ul>
+          <li>Provided high-quality customer support for Walmart clients via phone and support tools.</li>
+          <li>Resolved diverse customer issues while maintaining excellent service standards and customer satisfaction.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Education</h2>
+      <div class="section-note">// academic background</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">Ongoing</div>
+      <div class="entry-body">
+        <h3>BS Software Engineering</h3>
+        <div class="org">FAST National University of Computer &amp; Emerging Sciences, Karachi</div>
+      </div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">Intermediate</div>
+      <div class="entry-body">
+        <h3>Pre-Engineering</h3>
+        <div class="org">Meritorious Science College</div>
+      </div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">Matriculation</div>
+      <div class="entry-body">
+        <h3>Science</h3>
+        <div class="org">St. Matthias High School</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="more">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Extracurricular &amp; Languages</h2>
+      <div class="section-note">// beyond the classroom</div>
+    </div>
+    <div class="two-col">
+      <div>
+        <ul class="list-plain">
+          <li>Volleyball competition participant</li>
+          <li>Art exhibition contributor</li>
+          <li>Volunteer coordinator</li>
+          <li>AI for Beginners — HP LIFE (July 2025)</li>
+        </ul>
+      </div>
+      <div>
+        <div class="lang-row"><span>English</span><span>Fluent</span></div>
+        <div class="lang-row"><span>Urdu</span><span>Native</span></div>
+        <div class="lang-row"><span>German</span><span>Elementary</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="contact-box">
+      <div>
+        <h2>Let's talk</h2>
+        <p>mariumjam@gmail.com</p>
+      </div>
+      <a class="btn" href="mailto:mariumjam@gmail.com">Send an email</a>
+    </div>
+    <div class="fine-print">© 2026 Marium Jamshed — built for GitHub Pages</div>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.chip').forEach(function(chip){
+    chip.addEventListener('click', function(){
+      chip.classList.toggle('active');
+    });
+  });
+</script>
+</body>
+</html>
